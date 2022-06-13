@@ -1,0 +1,57 @@
+#服务配置
+Server:
+  Name: "web_app"
+  RunMode: "dev"
+  Port: 8081
+  ReadTimeout: 60
+  WriteTimeout: 60
+  StartTime: "2022-05-20"
+  MachineId: 1
+#应用配置
+App:
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  DefaultContextTimeout: 60
+#  UploadSavePath: storage/uploads
+#  UploadServerUrl: http://127.0.0.1:8000/static
+  UploadImageMaxSize: 5  # MB
+  UploadImageAllowExts:
+      - .jpg
+      - .jpeg
+      - .png
+Log:
+  Level: "debug"
+  Filename: "web_app.log"
+  AccessLogFilename: "access.log"
+  MaxSize: 200
+  MaxBackups: 7
+  MaxAge: 30
+MySql:
+  Host: rm-yours.mysql.rds.aliyuncs.com:3306
+  UserName: yours
+  Password: yours
+  DBName: dousound
+  TablePrefix: tb_
+#  Charset: utf8mb4
+#  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+Redis:
+  Host: redis-rds.redis.rds.aliyuncs.com
+  Port: 6379
+  Db: 0
+  PoolSize: 100
+  Password: jjbbkk123ABC
+Email:
+  Host: smtp.qq.com
+  Port: 465
+  UserName: xxx
+  Password: xxx
+  IsSSL: true
+  From: xxx
+  To:
+    - xxx
+JWT:
+  Secret: xxxdousoundxxx
+  Issuer: dousound
+  Expire: 480

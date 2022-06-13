@@ -1,0 +1,95 @@
+definitions:
+  errcode.Error:
+    type: object
+  model.User:
+    properties:
+      bg_img:
+        type: string
+      birthday:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      create_time:
+        type: string
+      desc:
+        type: string
+      district:
+        type: string
+      id:
+        type: integer
+      is_del:
+        type: integer
+      mobile:
+        type: string
+      nickname:
+        type: string
+      photo:
+        type: string
+      province:
+        type: string
+      sex:
+        type: integer
+      update_time:
+        type: string
+      user_id:
+        type: string
+      username:
+        type: string
+    type: object
+  service.RegisterRequest:
+    properties:
+      password:
+        minLength: 8
+        type: string
+      username:
+        maxLength: 8
+        minLength: 4
+        type: string
+    required:
+    - password
+    - username
+    type: object
+info:
+  contact: {}
+  description: 青训营项目 · 组名 - 大师我悟了
+  title: 抖声
+  version: "1.0"
+paths:
+  /douyin/test:
+    get:
+      produces:
+      - application/json
+      responses: {}
+      summary: 测试
+      tags:
+      - 测试接口
+  /douyin/user/register:
+    post:
+      parameters:
+      - description: 注册的用户名和密码
+        in: body
+        name: RegisterRequest
+        required: true
+        schema:
+          $ref: '#/definitions/service.RegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/model.User'
+        "400":
+          description: 请求错误
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: 内部错误
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: 用户账号密码注册接口
+      tags:
+      - 注册接口
+swagger: "2.0"
